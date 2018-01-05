@@ -20,7 +20,6 @@
   # Print a random, hopefully interesting, adage.
   if (( $+commands[fortune] )); then
     fortune -s
-    print
   fi
 
 } >&2
