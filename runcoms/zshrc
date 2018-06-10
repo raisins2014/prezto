@@ -9,13 +9,7 @@ fi
 
 unsetopt correct
 
-# Shared configuration
-[[ -e ~/.sh_shared ]] && source ~/.sh_shared
-
-# Local configuration
-[[ -e ~/.sh_local ]] && source ~/.sh_local
-
-# 
+#
 # Utilities
 #
 
@@ -45,4 +39,14 @@ function expand_alias() {
 }
 
 zle -N expand_alias
-bindkey "^ " expand_alias 
+bindkey "^ " expand_alias
+
+#
+# Additional configurations
+#
+
+# Shared configuration
+[[ -e ~/.sh_shared ]] && source ~/.sh_shared
+
+# Local configuration
+[[ -e ~/.sh_local ]] && source ~/.sh_local
