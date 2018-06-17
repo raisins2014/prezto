@@ -9,6 +9,19 @@ fi
 
 unsetopt correct
 
+#
+# Environment setup
+#
+
+# OPAM for OCaml
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Rust path
+export PATH="$HOME/.cargo/bin:$PATH"
+if command -v rustc >/dev/null 2>&1; then
+  RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src";
+fi
+
 export DOT_DIR=$HOME/dotfiles
 
 #
@@ -43,12 +56,18 @@ function expand_alias() {
 zle -N expand_alias
 bindkey "^ " expand_alias
 
+# 
+# Aliases
+#
+
+alias l="ls -A"
+
+alias treed="tree -d"
+alias treel="tree -L"
+
 #
 # Additional configurations
 #
 
-# Shared configuration
-[[ -e ~/.sh_shared ]] && source ~/.sh_shared
-
 # Local configuration
-[[ -e ~/.sh_local ]] && source ~/.sh_local
+[[ -e ~/.local.sh ]] && source ~/.local.sh
