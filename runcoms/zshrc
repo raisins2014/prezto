@@ -9,6 +9,8 @@ fi
 
 unsetopt correct
 
+export DOT_DIR=$HOME/dotfiles
+
 #
 # Utilities
 #
@@ -27,7 +29,7 @@ fi
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # Up
-source ~/.dotfiles/dependencies/up/up.sh
+source $DOT_DIR/dependencies/up/up.sh
 
 # Expand aliases with <C-Space>
 function expand_alias() {
