@@ -22,6 +22,9 @@ if command -v rustc >/dev/null 2>&1; then
   RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src";
 fi
 
+# miniconda3
+export PATH="/Users/rayzeng/miniconda3/bin:$PATH"
+
 export DOT_DIR=$HOME/dotfiles
 
 #
@@ -39,7 +42,8 @@ fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='fd -I -H -E ".git/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Up
 source $DOT_DIR/dependencies/up/up.sh
@@ -71,3 +75,6 @@ alias treel="tree -L"
 
 # Local configuration
 [[ -e ~/.local.sh ]] && source ~/.local.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
